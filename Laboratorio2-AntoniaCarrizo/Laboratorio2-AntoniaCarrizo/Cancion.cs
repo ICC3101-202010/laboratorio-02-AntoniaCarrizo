@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Laboratorio2AntoniaCarrizo
 {
     public class Cancion
@@ -76,7 +78,7 @@ namespace Laboratorio2AntoniaCarrizo
 
         public String Informacion()
         {
-            return "genero: " + Gender + ", artista: " + Artist + ", album: " + Album +  ", nombre: " + Name;
+            return "GENERO: " + Gender + ", ARTISTA: " + Artist + ", ALBUM: " + Album +  ", NOMBRE: " + Name;
         }
         
 

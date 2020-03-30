@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Laboratorio2AntoniaCarrizo
 {
@@ -10,18 +8,25 @@ namespace Laboratorio2AntoniaCarrizo
     {
         public static void Main(string[] args)
         {
+            Espotifai agregarlista = new Espotifai();
             Console.WriteLine("Bienvenido usuario");
-            Espotifai list = new Espotifai();
+            Cancion c1 = new Cancion("ocean eyes", "dont smile at me", "Billie Eilish", "electropop");
+            Cancion c2 = new Cancion("Dance Monkey", "Dance Monkey", "Tones and i", "electropop");
+            Cancion c3 = new Cancion("Bang Bang Bang", "When the sun goes down", "Selena Gomez", "pop");
+            agregarlista.AgregarCancion(c1);
+            agregarlista.AgregarCancion(c2);
+            agregarlista.AgregarCancion(c3);
+
+
             while (true) {
                 
-
-                Console.WriteLine("El menu es: \n (1)Ver canciones \n (2)Agregar Cancion \n (3)Salir del programa \n Seleccione una opcion: ");
+                Console.WriteLine("El menu es: \n (1)Ver canciones \n (2)Agregar Cancion  \n (3)Ver opciones por criterio \n (4)Salir del programa \n Seleccione una opcion: ");
                 string option = Console.ReadLine();
                 
 
                 if (option == "1")
                 {
-                    list.VerCanciones();
+                    agregarlista.VerCanciones();
 
                 }
                 if (option == "2")
@@ -32,16 +37,33 @@ namespace Laboratorio2AntoniaCarrizo
                     string art = Console.ReadLine();
                     string gen = Console.ReadLine();
                     Cancion cancion = new Cancion(nam, alb, art, gen);
-                    Console.WriteLine(cancion.Informacion());
-                    list.AgregarCancion(cancion);
-                    
+
+                    if (agregarlista.AgregarCancion(cancion)== true)
+                    {
+                        Console.WriteLine("La cancion que agrego es: \n" + cancion.Informacion());
+                    }
+                    else
+                    {
+                        Console.WriteLine("La cancion ya estaba agregada anteriormente");
+                    }
+                 }
+
+                if (option == "3")
+                {
+                    Console.WriteLine("Ingrese el tipo de criterio (nombre cancion, album, artista, genero): ");
+                    string criterio = Console.ReadLine();
+                    Console.WriteLine("Ingrese criterio: ");
+                    string valor = Console.ReadLine();
                 }
-                if (option== "3")
+
+                if (option == "4")
                 {
                     break;
 
                 }
-                if (option!="1" && option != "2" && option != "3")
+
+
+                if (option!="1" && option != "2" && option != "3" && option != "4")
                 {
                     Console.WriteLine("La opcion no es correcta, vuelva a ingresarla");
                 }
