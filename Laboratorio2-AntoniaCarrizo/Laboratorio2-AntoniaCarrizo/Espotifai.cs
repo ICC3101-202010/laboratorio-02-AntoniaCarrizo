@@ -7,10 +7,11 @@ namespace Laboratorio2AntoniaCarrizo
     public class Espotifai
     {
          //Crear lista
-         private List<Cancion> songsList = new List<Cancion>();
+        private List<Cancion> songsList = new List<Cancion>();
+        
 
-         //Constructor vacio de la clase espotiafai
-         public Espotifai()
+        //Constructor vacio de la clase espotiafai
+        public Espotifai()
          { 
          }
 
@@ -55,8 +56,80 @@ namespace Laboratorio2AntoniaCarrizo
                  Console.WriteLine("no hay canciones");
              }
          }
-        
-        
+
+        //Metodo para playlist
+        public List<Cancion> CancionesPorCriterio(String criterio, String valor)
+        {
+            List<Cancion> Listcriterio = new List<Cancion>();
+            if (criterio == "genero" || criterio == "GENERO" || criterio == "Genero" )
+            {
+                int j = 0;
+                while (j < songsList.Count)
+                {
+                    if (songsList[j].Gender == valor)
+                    {
+                        Listcriterio.Add(songsList[j]);
+                        
+                    }
+                    j++;
+                    
+
+                }
+            }
+
+            else if (criterio == "nombre" || criterio == "NOMBRE" || criterio == "Nombre" )
+            {
+                int j = 0;
+                while (j < songsList.Count)
+                {
+                    if (songsList[j].Name == valor)
+                    {
+                        Listcriterio.Add(songsList[j]);
+                    }
+                    j++;
+
+                }
+            }
+
+            else if (criterio == "artista" || criterio == "ARTISTA" || criterio == "Artista")
+            {
+                int j = 0;
+                while (j < songsList.Count)
+                {
+                    if (songsList[j].Artist == valor)
+                    {
+                        Listcriterio.Add(songsList[j]);
+                    }
+                    j++;
+
+                }
+            }
+            else if (criterio == "album" || criterio == "ALBUM" || criterio == "Album")
+            {
+                int j = 0;
+                while (j < songsList.Count)
+                {
+                    if (songsList[j].Album == valor)
+                    {
+                        Listcriterio.Add(songsList[j]);
+                    }
+                    j++;
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error, el criterio no es valido");
+                
+            }
+
+
+            return Listcriterio;
+
+            
+        }
+
+
 
     }
 }

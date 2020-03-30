@@ -50,10 +50,33 @@ namespace Laboratorio2AntoniaCarrizo
 
                 if (option == "3")
                 {
-                    Console.WriteLine("Ingrese el tipo de criterio (nombre cancion, album, artista, genero): ");
+                    Console.WriteLine("Ingrese el tipo de criterio (nombre, album, artista, genero): ");
                     string criterio = Console.ReadLine();
                     Console.WriteLine("Ingrese criterio: ");
                     string valor = Console.ReadLine();
+                   
+
+                    if (agregarlista.CancionesPorCriterio(criterio, valor).Count > 0)
+                    {
+                        int q = 0;
+                        int w = 1;
+                        
+                        
+                        while (q < agregarlista.CancionesPorCriterio(criterio, valor).Count)
+                        {
+
+                            Console.WriteLine(w + ") " + agregarlista.CancionesPorCriterio(criterio, valor)[q].Informacion());
+                            q++;
+                            w++;
+
+                        }
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("No existen canciones para este criterio");
+                    }
+
                 }
 
                 if (option == "4")
