@@ -20,7 +20,7 @@ namespace Laboratorio2AntoniaCarrizo
 
             while (true) {
                 
-                Console.WriteLine("El menu es: \n (1)Ver canciones \n (2)Agregar Cancion  \n (3)Ver opciones por criterio \n (4)Salir del programa \n Seleccione una opcion: ");
+                Console.WriteLine("El menu es: \n (1)Ver canciones \n (2)Agregar Cancion  \n (3)Ver canciones por criterio \n (4)Crear playlist \n (5)Ver mis playlist \n (6)Salir del programa \n Seleccione una opcion: ");
                 string option = Console.ReadLine();
                 
 
@@ -79,14 +79,38 @@ namespace Laboratorio2AntoniaCarrizo
 
                 }
 
-                if (option == "4")
+
+                if (option=="4")
+                {
+                    Console.WriteLine("Ingrese nombre de la Playlist: ");
+                    string nomplay = Console.ReadLine();
+                    Console.WriteLine("Ingrese tipo de criterio (genero, album, artista, nombre): ");
+                    string criplay = Console.ReadLine();
+                    Console.WriteLine("Ingrese valor del criterio: ");
+                    string valcriplay = Console.ReadLine();
+
+                    agregarlista.GenerarPlaylist(criplay, valcriplay, nomplay);
+                    
+
+                }
+
+
+               if (option=="5")
+               {
+                    Console.WriteLine(agregarlista.VerMisPlaylists());
+
+               }
+
+
+
+                if (option == "6")
                 {
                     break;
 
                 }
 
 
-                if (option!="1" && option != "2" && option != "3" && option != "4")
+                if (option!="1" && option != "2" && option != "3" && option != "4" && option != "5" && option != "6")
                 {
                     Console.WriteLine("La opcion no es correcta, vuelva a ingresarla");
                 }
